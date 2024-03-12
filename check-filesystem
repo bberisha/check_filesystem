@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# List of cluster node IP addresses or hostnames
+nodes=("ubuntu1")
+
+# SSH username
+username="your_username"
+
+# Loop through each node
+for node in "${nodes[@]}"
+do
+    echo "Checking kubelet status on $node..."
+    ssh "$username@$node" "systemctl status kubelet"
+    echo "========================================="
+done
